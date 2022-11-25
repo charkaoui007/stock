@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 23 nov. 2022 à 20:20
--- Version du serveur : 10.4.24-MariaDB
--- Version de PHP : 8.1.6
+-- Généré le :  mer. 23 nov. 2022 à 22:37
+-- Version du serveur :  10.1.38-MariaDB
+-- Version de PHP :  7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `stock`
+-- Base de données :  `dbstock`
 --
 
 -- --------------------------------------------------------
@@ -34,6 +35,16 @@ CREATE TABLE `client` (
   `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `client`
+--
+
+INSERT INTO `client` (`id`, `nom`, `telephone`, `email`) VALUES
+(8, 'ARRAJ mohamed', '0636147570', 'mohamed.arraj@emsi-edu.ma'),
+(9, 'CHARKAOUI anass', '0678731303', 'anass.charkaoui@emsi-edu.ma'),
+(10, 'Rami', '0254879555', 'rami@gmail.com'),
+(11, 'Safi', '0865784554', 'safi@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -45,8 +56,6 @@ CREATE TABLE `commande` (
   `date` date NOT NULL,
   `client` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
 
 -- --------------------------------------------------------
 
@@ -72,7 +81,15 @@ CREATE TABLE `fournisseur` (
   `telFour` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `fournisseur`
+--
 
+INSERT INTO `fournisseur` (`id`, `nomFour`, `telFour`) VALUES
+(3, 'Fournisseur1', '0698551885'),
+(4, 'Fournisseur2', '0524472514'),
+(5, 'Fournisseur1', '0698551885'),
+(6, 'Fournisseur2', '0524472514');
 
 -- --------------------------------------------------------
 
@@ -87,8 +104,6 @@ CREATE TABLE `lignecommande` (
   `quantité` int(11) NOT NULL,
   `prixVente` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
 
 -- --------------------------------------------------------
 
@@ -117,8 +132,6 @@ CREATE TABLE `produit` (
   `rayon` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-
-
 -- --------------------------------------------------------
 
 --
@@ -129,7 +142,6 @@ CREATE TABLE `rayon` (
   `id` int(11) NOT NULL,
   `code` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 
 --
 -- Index pour les tables déchargées
@@ -199,7 +211,7 @@ ALTER TABLE `rayon`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `demande`
@@ -211,7 +223,7 @@ ALTER TABLE `demande`
 -- AUTO_INCREMENT pour la table `fournisseur`
 --
 ALTER TABLE `fournisseur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `lignecommande`
@@ -235,7 +247,7 @@ ALTER TABLE `produit`
 -- AUTO_INCREMENT pour la table `rayon`
 --
 ALTER TABLE `rayon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Contraintes pour les tables déchargées
